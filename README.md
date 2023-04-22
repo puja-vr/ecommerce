@@ -1,6 +1,6 @@
 Folder `src` contains all source files.
 
-
+# Class Hierarchy:
 - Product
     - Electronics
         - Mobile
