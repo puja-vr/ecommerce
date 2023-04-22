@@ -1,0 +1,26 @@
+Create a e-commerce site that supports only Electronics, 
+Clothing and Food items with below features.
+
+1. Create an InventoryManager that holds information about 
+    the current stocks of the products and load up
+
+2. Receive orders for products (electronics, clothing, food) 
+    and reduce the content from inventory
+
+3. Ensure at a time, only one order can be received per 
+    product. (Because, if we have only 1 quantity, 
+    then we shouldn't allow to place orders > 1.)
+
+4. Consider a user places an order, then first reduce the 
+    stock from the inventory and notify the CartManager 
+    to add the items into cart
+
+5. Make sure each product has its own property and falls 
+    under either of the three categories called 
+    "Electronics", "Food" and "Clothing". All these 
+    categories are the children of "Product" class.
+
+6. Each Product should be loaded from file. You should not 
+    use new operator instantiate the Product class. 
+    For ex, if you have an Iphone product class, it should 
+    be loaded from a file using its fully qualified name.
