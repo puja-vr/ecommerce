@@ -1,18 +1,27 @@
+import java.nio.file.*;
+import java.util.*;
+
 public class InventoryManager {
-    // InventoryManager() {
-    //     XX object41 = (XX) Class.forName(
-    //     "in.bench.resources.reflection.XX").getConstructor()
-    //     .newInstance();
-    // }
-
-    String pid;
-    int quantity;
-
-    void addStock(int n) {
-        quantity+=n;
+    Map<String,Integer> stock;
+       
+    InventoryManager() throws Exception {
+        stock = new HashMap<>();
+        Path file = Paths.get("/home/puja-pt6721/Drive/ecommerce/src/products/Load.txt");
+        List<String> filenames = Files.readAllLines(file);
+        for (String product : filenames) {
+            stock.put(product,5);
+        }
     }
     
-    void minusStock(int n) {
-        quantity-=n;
+    boolean inventoryCheck(String pid,int n) throws Exception {
+        for (String product : stock.keySet()) {
+            int quantity=stock.get(product);
+            if(product.contains(pid) && n<=quantity) {
+                stock.replace(product, quantity-n);
+                System.out.println("Remaining stock = "+stock.get(product));
+                return true;
+            } 
+        }
+        return false;
     }
 }

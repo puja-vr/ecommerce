@@ -1,8 +1,10 @@
 package products;
 
-public class Iphone14 extends Mobile {
-    public Iphone14() {
-        this.pid = "PEM-1";
+import categories.Mobile;
+
+public class PEM1 extends Mobile {
+    public PEM1() {
+        this.pid = "PEM1";
         this.name = "Iphone 14";
         this.description = "Apple Iphone 14 5G 128GB";
     }
