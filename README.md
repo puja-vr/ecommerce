@@ -14,6 +14,9 @@ Folder `src` contains all source files.
         - Shirt
         - Pants
         - Salwar
+- Notification
+    - InventoryChange
+    - CartChange
 - InventoryManager
 - CartManager
 - Cart
