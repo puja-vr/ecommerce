@@ -7,5 +7,6 @@ public class PFB1 extends Breads {
         this.pid = "PFB1";
         this.name = "Wheat Bread";
         this.description = "Brittania Wheat Bread";
+        this.quantity = 5;
     }
 }

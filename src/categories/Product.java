@@ -24,6 +24,7 @@ public abstract class Product {
     protected String description;
     protected String category;
     protected String subcat;
+    protected int quantity;
 
     public String getPid() {
         return this.pid;
@@ -43,5 +44,13 @@ public abstract class Product {
 
     public String getSubcat() {
         return this.subcat;
+    }
+
+    public int getQuantity() {
+        return this.quantity;
+    }
+
+    public void setQuantity(int n) {
+        this.quantity=n;
     }
 }

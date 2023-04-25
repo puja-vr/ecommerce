@@ -1,27 +1,22 @@
-import java.nio.file.*;
 import java.util.*;
 
-import categories.Product;
-
 public class App {
-    public static void main(String[] args) throws Exception {
+    private Notification c1;
 
-        Path file = Paths.get("/home/puja-pt6721/Drive/ecommerce/src/products/Load.txt");
-        List<String> filenames = Files.readAllLines(file);        
+	public App() throws Exception {
+		this.c1 = new InventoryChange();
+		Notification c2 = new CartChange();
+		c1.setNextChain(c2);
+	}
+    public static void main(String[] args) throws Exception {
+   
+        App myapp = new App();
         Scanner sc=new Scanner(System.in);
-        InventoryManager im=new InventoryManager();
-        CartManager cm=new CartManager();
+        InventoryManager im=InventoryManager.getObject();
+        CartManager cm=CartManager.getObject();
 
         while(true) {
-            System.out.println("\n~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ Welcome to E-commerce site!~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ");
-            Formatter fmt = new Formatter();  
-            fmt.format("%10s |%15s |%35s |%15s |%15s\n","PID","Name","Description","Category","Subcategory");  
-            fmt.format("--------------------------------------------------------------------------------------------------\n");
-            for (String product : filenames) {
-                Product prod = (Product) Class.forName(product).getConstructor().newInstance();
-                fmt.format("%10s |%15s |%35s |%15s |%15s\n",prod.getPid(),prod.getName(),prod.getDesc(),prod.getCat(), prod.getSubcat()); 
-            }  
-            System.out.println(fmt);
+            im.printInventory();
 
             System.out.println("1. Place order");
             System.out.println("2. View carts");
@@ -31,18 +26,17 @@ public class App {
 
             switch(ch) {
                 case 1:
-                    Map<String,Integer> items=new HashMap<>();
                     System.out.println("\nTo stop -> enter \"q\"");
                     while(true) {
                         System.out.print("Enter PID and quantity: ");
                         String pid=sc.next();
-                        if(pid.equals("q") || pid.equals("Q")) break;
-                        int quantity=sc.nextInt();
-            
-                        if(im.inventoryCheck(pid,quantity)) items.put(pid, quantity);  
-                        else System.out.println("Insufficient stock OR Invalid PID!");
+                        int quantity=0;
+                        if(!(pid.equalsIgnoreCase("q")))
+                            quantity=sc.nextInt();
+                        
+                        myapp.c1.newOrder(pid,quantity);
+                        if(pid.equalsIgnoreCase("q")) break;
                     }
-                    cm.addToCart(items);
                     break;
                 case 2:
                     cm.printCarts();

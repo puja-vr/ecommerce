@@ -7,5 +7,6 @@ public class PFC1 extends Cookies {
         this.pid = "PFC1";
         this.name = "Oreo";
         this.description = "Cadbury Oreo Vanilla";
+        this.quantity = 5;
     }
 }

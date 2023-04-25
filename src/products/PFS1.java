@@ -7,5 +7,6 @@ public class PFS1 extends Snacks {
         this.pid = "PFS1";
         this.name = "Potato Chips";
         this.description = "Lay'S Classic Salted Potato Chips";
+        this.quantity = 5;
     }
 }

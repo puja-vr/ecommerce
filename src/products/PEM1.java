@@ -7,5 +7,6 @@ public class PEM1 extends Mobile {
         this.pid = "PEM1";
         this.name = "Iphone 14";
         this.description = "Apple Iphone 14 5G 128GB";
+        this.quantity = 5;
     }
 }

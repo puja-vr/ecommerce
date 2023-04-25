@@ -5,13 +5,20 @@ class Cart {
 }
 
 public class CartManager {
+    private static CartManager cm;
+    public static CartManager getObject() throws Exception {
+        if(cm == null) {
+            cm = new CartManager();
+        }
+        return cm;
+    }
     List<Cart> carts;
 
     CartManager() {
         carts=new ArrayList<Cart>();
     }
 
-    void addToCart(Map<String,Integer> items) {
+    void addToCarts(Map<String,Integer> items) {
         Cart c=new Cart();
         c.items=new HashMap<>();
         c.items.putAll(items);

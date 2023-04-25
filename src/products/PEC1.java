@@ -7,5 +7,6 @@ public class PEC1 extends Charger {
         this.pid = "PEC1";
         this.name = "Charger Type C";
         this.description = "Samsung Charger Type C";
+        this.quantity = 5;
     }
 }

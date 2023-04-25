@@ -7,5 +7,6 @@ public class PCS1 extends Pants {
         this.pid = "PCS1";
         this.name = "Cotton Top";
         this.description = "Akkrithi Cotton Top";
+        this.quantity = 5;
     }
 }
